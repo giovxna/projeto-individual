@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/login/css/global.css" />
+    <link rel="stylesheet" href="assets/login/css/index.css">
+    <title>posie | cadastro</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-side"></div>
+        <div class="right-side">
+            <form id="form">
+                <section class="copy">
+                    <h2>ficamos felizes em ter você de volta!</h2><br>
+                </section>
+                <div class="input-container email">
+                    <label class="ipt-email">e-mail</label>
+                    <input type="email" id="email_input">
+                    <small>Error</small>
+                </div>
+                <div class="input-container password">
+                    <label class="ipt-password">senha</label>
+                    <input type="password" id="senha_input">
+                    <small>Error</small>
+                </div>
+                <button onclick="entrar()" type="submit" class="signup-btn">entrar</button>
+                <a href="cadastro.html">não tem uma conta?</a>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var form = document.getElementById('form')
+        var email = document.getElementById('email_input')
+        var password = document.getElementById('senha_input')
+
+        // tirando o comportamento padrão do navegador, ou seja, não irá perguntar se deseja salvar a senha.
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            checkInputs()
+        })
+
+        function checkInputs() {
+            // função trim para remover os espaços em branco e considerar apenas os textos
+            var emailUser = email.value.trim()
+            var passwordUser = password.value.trim()
+
+            if (emailUser === "") {
+                errorValidation(email, 'Preencha este campo')
+            } else {
+                sucessValidation(email)
+            }
+
+            if (passwordUser === "") {
+                errorValidation(password, 'Preencha este campo')
+            } else {
+                sucessValidation(password)
+            }
+
+            if (passwordConfirmUser === "") {
+                errorValidation(passwordConfirm, 'Preencha este campo')
+            } else if (passwordConfirmUser !== passwordUser) {
+                errorValidation(password, 'Senha diferente')
+            } else {
+                sucessValidation(passwordConfirm)
+            }
+        }
+
+        function errorValidation(input, message) {
+            // função que irá reatribuir e atualizar o nome da classe no HTML automaticamente
+            var inputContainer = input.parentElement
+            var small = inputContainer.querySelector('small')
+
+            small.innerText = message
+            inputContainer.className = 'input-container error'
+        }
+
+        function sucessValidation(input) {
+            var inputContainer = input.parentElement
+            inputContainer.className = 'input-container success'
+        }
+    </script>
+    <script>
+        function entrar() {
+            // aguardar();
+
+            var emailVar = email_input.value;
+            var senhaVar = senha_input.value;
+
+            if (emailVar == "" || senhaVar == "") {
+                // cardErro.style.display = "block"
+                // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+                // finalizarAguardar();
+                return false;
+            }
+            else {
+                // setInterval(sumirMensagem, 5000)
+            }
+
+            console.log("FORM LOGIN: ", emailVar);
+            console.log("FORM SENHA: ", senhaVar);
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.id;
+
+                        setTimeout(function () {
+                            window.location = "home.html";
+                        }, 1000); // apenas para exibir o loading
+
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        // finalizarAguardar(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+            return false;
+        }
+
+        // function sumirMensagem() {
+        //     cardErro.style.display = "none"
+        // }
+
+    </script>
+</body>
+
+</html>

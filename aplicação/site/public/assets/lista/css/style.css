@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;800&display=swap");
+
+:root {
+  --header-height: 3.5rem;
+
+  --hue: 152;
+  --green: hsl(143, 19%, 29%);
+  --light-green: hsl(91, 12%, 51%);
+  --light-pink: hsl(332, 48%, 82%);
+  --black: hsl(0, 0%, 2%);
+
+  --title-color: hsl(0, 0%, 2%);
+  --text-color: hsla(0, 0%, 0%, 1);
+  --text-color-light: hsl(195, 5%, 84%);
+  --body-color: hsl(30, 12%, 93%);
+  --container-color: #fff;
+
+  --body-font: "Playfair Display", serif;
+
+  --m1: 0.5rem;
+  --m2: 0.75rem;
+  --m3: 1rem;
+  --m4: 1.5rem;
+  --m5: 2rem;
+  --m6: 2.5rem;
+
+  --font-bold: 500;
+}
+
+* {
+  font-family: var(--body-font);
+}
+
+body {
+  height: 100vh;
+
+  background: hsl(143, 19%, 29%);
+  background: linear-gradient(
+    90deg,
+    hsl(143, 19%, 29%) 0%,
+    hsl(143, 19%, 29%) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsl(143, 19%, 29%) 0%,
+    hsl(143, 19%, 29%) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsl(143, 19%, 29%) 0%,
+    hsl(143, 17%, 38%) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#099773", endColorstr="#43B692", GradientType=1);
+
+  color: var(--container-color);
+
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  min-width: 50%;
+  padding: 30px 50px;
+  align-self: center;
+}
+
+.card {
+  background-color: var(--container-color);
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.lineInput {
+  display: grid;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid var(--light-green);
+  border-radius: 3px;
+  outline: none;
+}
+
+button {
+  width: 7rem;
+
+  border: 0;
+  outline: none;
+
+  background-color: var(--green);
+  color: #fff;
+
+  padding: 0.8rem;
+
+  border-radius: 0.5rem;
+
+  transition: all ease 0.3s;
+
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--light-green);
+}
+
+.content {
+  margin-top: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid var(--container-color);
+  width: 100%;
+}
+
+table th {
+  color: aliceblue;
+  background-color: var(--container-color);
+}
+
+table th,
+td {
+  padding: 3px 5px;
+  text-align: left;
+}
+
+table td img {
+  width: 1.2rem;
+  cursor: pointer;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <script defer src="assets/lista/js/script.js"></script>
+    <link rel="stylesheet" href="assets/lista/css/style.css">
+    <title>posie | to do list</title>
+</head>
+
+<body>
+    <main>
+        <div class="title">
+            <h2>lista de afazeres</h2>
+        </div>
+        <div class="card">
+            <div class="lineInput">
+                <input type="text" id="product" placeholder="digite sua atividade do dia" />
+            </div>
+            <button onclick="app.save(), adicionar()" id="saveData">salvar</button>
+        </div>
+
+        <div class="content">
+            <table border="1">
+
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+        <div class="content">
+        </div>
+    </main>
+
+
+    <script>
+        function adicionar() {
+            // aguardar();
+
+            //Recupere o valor da nova input pelo nome do id
+            // Agora vá para o método fetch logo abaixo
+            var descricao = product.value;
+            var idUsuario = sessionStorage.ID_USUARIO;
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/adicionar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    usuarioServer: idUsuario,
+                    descricaoServer: descricao
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    alert("tarefa cadastrada.")
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+
+            return false;
+        }
+    </script>
+
+</body>

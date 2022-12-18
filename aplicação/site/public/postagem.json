@@ -1,0 +1,38 @@
+[
+    {
+        "imagem": "1",
+        "titulo": "auto cuidado",
+        "descricao": "um relacionamento saudável com o bem-estar ajuda você a se sentir energizada e sem esgotamento.",
+        "comentarios": "300",
+        "visualizacao": "2,5k",
+        "link": ""
+    },
+
+    {
+        "imagem": "2",
+        "titulo": "mentalidade",
+        "descricao": "uma mentalidade positiva lhe dá paz de espírito e confiança para perseguir seus maiores objetivos.",
+        "comentarios": "450",
+        "visualizacao": "2k",
+        "link": ""
+        
+    },
+
+    {
+        "imagem": "3",
+        "titulo": "produtividade",
+        "descricao": "um cronograma intencionalmente planejado ajuda a reduzir a sobrecarga e a criar tempo para o que você deseja fazer.",
+        "comentarios": "2",
+        "visualizacao": "4",
+        "link": ""
+    },
+
+    {
+        "imagem": "4",
+        "titulo": " priorização",
+        "descricao": "entender que nem sempre as coisas estão no seu controle alivia a pressão que tem em si mesma.",
+        "comentarios": "300",
+        "visualizacao": "2k",
+        "link": "postagem.html"
+    }
+]

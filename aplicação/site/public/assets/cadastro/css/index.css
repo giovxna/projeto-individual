@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;800&display=swap");
+
+:root {
+  --header-height: 3.5rem;
+
+  --hue: 152;
+  --green: hsl(143, 19%, 29%);
+  --light-green: hsl(91, 12%, 51%);
+  --light-pink: hsl(332, 48%, 82%);
+  --light-grey: hsl(0, 0%, 67%);
+  --black: hsl(0, 0%, 2%);
+
+  --title-color: hsl(0, 0%, 2%);
+  --text-color: rgb(165, 165, 165);
+  --text-color-light: hsl(0, 0%, 76%);
+  --body-color: hsl(30, 12%, 93%);
+  --container-color: #fff;
+
+  --body-font: "Playfair Display", serif;
+
+  --m1: 0.5rem;
+  --m2: 0.75rem;
+  --m3: 1rem;
+  --m4: 1.5rem;
+  --m5: 2rem;
+  --m6: 2.5rem;
+
+  --font-bold: 500;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --title: 1.5rem;
+    --subtitle: 1.2rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-side {
+  height: 200px;
+
+  background: url("../images/menu.png");
+  background-position: center;
+  background-size: cover;
+}
+
+/* centralização dos inputs ao lado direito */
+.right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ajuste do texto abaixo do "entre" */
+.right-side .copy > h2 {
+  color: var(--green);
+  font-size: var(--title);
+  font-weight: 800;
+
+  margin-bottom: var(--m1);
+}
+
+.right-side .copy p {
+  font-size: var(--subtitle);
+}
+
+.input-container {
+  color: var(--light-pink);
+}
+
+#form {
+  width: 50%;
+}
+
+/* estilizando os inputs */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+
+  background: none;
+  outline: none;
+
+  display: block;
+  margin-bottom: var(--m5);
+
+  border: none;
+  border-bottom: 1px solid var(--light-grey);
+
+  color: var(--green);
+  font-size: var(--small-font-size);
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  border-bottom: 1px solid var(--green);
+  color: var(--green);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+
+  font-size: var(--smaller-font-size);
+}
+
+.signup-btn {
+  width: 100%;
+  display: block;
+
+  background-color: var(--green);
+
+  color: var(--container-color);
+  font-size: var(--smaller-font-size);
+
+  padding: 1.2rem;
+
+  margin-bottom: var(--m3);
+
+  border: none;
+  border-radius: 10px;
+
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.signup-btn:hover {
+  background-color: var(--light-green);
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--m5);
+
+  font-size: var(--small-font-size);
+  color: var(--light-green);
+
+  text-decoration: underline;
+}
+
+/* validação */
+.input-container.success input {
+  border-bottom: 1px solid #09b328;
+}
+
+.input-container.error input {
+  border-bottom: 1px solid #cd1e1e;
+}
+
+.input-container small {
+  visibility: hidden;
+  position: absolute;
+  font-size: 14px;
+  color: #db5a5a;
+}
+
+@media screen and (min-width: 900px) {
+  .container {
+    height: 100vh;
+
+    flex-direction: row;
+  }
+
+  .left-side,
+  .right-side {
+    width: 50%;
+
+    height: auto;
+    display: flex;
+  }
+
+  .right-side img {
+    width: 50%;
+  }
+}

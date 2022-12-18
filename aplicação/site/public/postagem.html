@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/post/css/global.css" />
+    <link rel="stylesheet" href="assets/post/css/index.css">
+    <title>posie | autossabotagem</title>
+</head>
+
+<body onload="listar(), atualizarFeed()">
+    <!-- menu -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav-logo">✽</a>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="home.html" class="nav-link">| início |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">| sair |</a>
+                    </li>
+                </ul>
+                <div class="nav-close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="blog section" id="blog">
+        <div class="blog-container container grid">
+            <div class="blog-content post">
+                <h2 class="section-title">
+                    os tipos de autossabotagem
+                </h2>
+                <p>a procrastinação diz respeito ao atraso de tarefas e decisões comumente associada a um sofrimento
+                    psicológico significativo. é um comportamento prevalente e considerado complexo por envolver
+                    componentes cognitivos, emocionais e comportamentais que fornecem ao procrastinador um conforto
+                    temporário diante de uma tarefa aversiva.</p><br>
+                <p>o comportamento procrastinatório é considerado relativamente difícil de ser modificado porque
+                    fornece um conforto temporário em um mundo cheio de demandas, incertezas e responsabilidades,
+                    sendo utilizado como estratégia de enfrentamento diante de tarefas aversivas</p>
+                </p><br>
+                <p>diversas razões para esse comportamento são apresentadas com base em sua
+                    observação clínica de terapeuta cognitivo-comportamental: pode existir uma preocupação excessiva
+                    das pessoas com a própria capacidade de fazer as coisas corretamente; outras atrasam tarefas
+                    porque não querem ter de realizá-las; e ainda há aquelas que procrastinam porque não são
+                    organizadas e simplesmente não sabem por onde começar. de acordo com a autora, o motivo
+                    subjacente à evitação define diferentes tipos de procrastinadores (p. ex., o tipo inseguro evita
+                    a tarefa predominantemente por insegurança quanto às próprias habilidades). ellis e knaus
+                    (1997), também apoiados na abordagem cognitiva (especificamente na terapia racional emotiva),
+                    relacionaram a procrastinação aos medos irracionais do fracasso centrados na autocrítica e na
+                    insegurança sobre suas habilidades.</p><br>
+                <p>com tudo, é entendível que fazer uma mudança brusca, sentido de tirar algo que já está bastante
+                    presente na rotina,
+                    porém, quando queremos ressignificar pontos importantes e reconhecemos que esse é o pontapé
+                    inicial, já é um grande passo.
+                    e, por falar em passos, a mudança vem aos poucos. começa de pouco em pouco, como se fosse a
+                    construção de um grande projeto, por exemplo.
+                </p><br>
+                <p>então, para isso, posie gostaria de auxiliar no início da sua jornada disponibilizando uma <a
+                        href="lista.html">lista de afazeres</a> para que
+                    você consiga organizar sua rotina. você poderá acessá-la por <a href="lista.html">aqui.</a>
+                </p>
+                <div class="analytics" id="analytics">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+    <section class="coments section">
+        <div class="coments-container container grid">
+            <h2 class="section-title">comentários</h2>
+            <form class="coments-form" id="form_postagem" method="post" onsubmit="return publicar()">
+                <div class="coments-inputs">
+                    <div class="coments-content">
+                        <input type="text" name="titulo" placeholder=" " class="coments-input" id="titulo" />
+                        <label for="" class="coments-label">título</label>
+                    </div>
+                    <div class="coments-content">
+                        <input type="text" name="descricao" placeholder=" " class="coments-input"
+                            id="textarea_descricao" />
+                        <label for="" class="coments-label">descrição</label>
+                    </div>
+                </div>
+                <button class="button button-flex">enviar</button>
+                <div class="div-results">
+                    <div id="feed_container" class="feed-container">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer section">
+        <div class="footer-container container grid">
+            <div class="footer-content">
+                <a href="#" class="footer-logo">✽</a>
+                <h3 class="footer-title">
+                    inscreva-se para novidades do
+                    blog!
+                </h3>
+                <div class="footer-subscribe">
+                    <input type="email" placeholder="Insira seu e-mail" class="footer-input" />
+                    <button class="button button-flex footer-button">receber</button>
+                </div>
+            </div>
+            <div class="footer-content">
+                <h3 class="footer-title">serviços</h3>
+
+                <ul class="footer_data">
+                    <li class="footer-info">contato</li>
+                    <li class="footer-info">dúvidas</li>
+                    <li class="footer-info">reclamações</li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <h3 class="footer-title">projeto</h3>
+                <ul class="footer_data">
+                    <li class="footer-info">sobre nós</li>
+                    <li class="footer-info">nossa missão</li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <h3 class="footer-title">redes sociais</h3>
+                <ul class="footer_data">
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/populusnine" class="footer-social-link">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
+        <p class="footer-copy">&#169; posie | 2022 | todos os direitos reservados.</p>
+    </footer>
+
+    <!-- <script src="assets/js/js.js"></script> -->
+    <script>
+        // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+        function limparFormulario() {
+            document.getElementById("form_postagem").reset();
+        }
+
+        function publicar() {
+            var idUsuario = sessionStorage.ID_USUARIO;
+
+            var corpo = {
+                titulo: form_postagem.titulo.value,
+                descricao: form_postagem.descricao.value
+            }
+
+            fetch(`/comentar/publicar/${idUsuario}`, {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(corpo)
+            }).then(function (resposta) {
+                console.log("resposta: ", resposta);
+                if (resposta.ok) {
+                    window.alert("obrigada pelo comentário!");
+                    listar()
+                    // limparFormulario();
+                    // finalizarAguardar();
+                } else if (resposta.status == 404) {
+                    window.alert("Deu 404!");
+                } else {
+                    throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+
+            return false;
+
+        }
+
+        function listar() {
+            //aguardar();
+            fetch(`/comentar/listar`).then(function (resposta) {
+                if (resposta.ok) {
+                    if (resposta.status == 204) {
+                        var feed = document.getElementById("feed_container");
+                        var mensagem = document.createElement("span");
+                        mensagem.innerHTML = "<br> nenhum comentário encontrado."
+                        feed.appendChild(mensagem);
+                        throw "Nenhum resultado encontrado!!";
+                    }
+
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos: ", JSON.stringify(resposta));
+                        var feed = document.getElementById("feed_container");
+                        feed.innerHTML = "";
+                        for (let i = 0; i < resposta.length; i++) {
+                            var publicacao = resposta[i];
+                            var divPublicacao = document.createElement("div");
+                            var spanID = document.createElement("span");
+                            var spanTitulo = document.createElement("span");
+                            var spanNome = document.createElement("span");
+                            var divDescricao = document.createElement("div");
+                            var divButtons = document.createElement("div");
+                            var btnEditar = document.createElement("button");
+                            var btnDeletar = document.createElement("button");
+
+
+                            // spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
+                            spanTitulo.innerHTML = "<br> título: <b>" + publicacao.titulo + "</b>";
+                            // spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
+                            divDescricao.innerHTML = "descrição: <b>" + publicacao.descricao + "</b><br>";
+                            btnEditar.innerHTML = "Editar";
+                            btnDeletar.innerHTML = "Deletar";
+
+                            divPublicacao.className = "publicacao";
+                            spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                            spanNome.className = "publicacao-nome";
+                            spanTitulo.className = "publicacao-titulo";
+                            divDescricao.className = "publicacao-descricao";
+
+
+                            divPublicacao.appendChild(spanID);
+                            divPublicacao.appendChild(spanNome);
+                            divPublicacao.appendChild(spanTitulo);
+                            divPublicacao.appendChild(divDescricao);
+                            divPublicacao.appendChild(divButtons);
+
+                            feed.appendChild(divPublicacao);
+                            // feed.innerHTML += `<br>${publicacao.titulo}<br>`;
+                            // feed.innerHTML += `${publicacao.descricao}<br>`;
+                        }
+
+                        // finalizarAguardar();
+                    });
+                } else {
+                    throw ('Houve um erro na API!');
+                }
+            }).catch(function (resposta) {
+                console.error(resposta);
+                // finalizarAguardar();
+            });
+        }
+
+        function atualizarFeed() {
+            //aguardar();
+            fetch("/analytics/analytics").then(function (resposta) {
+                if (resposta.ok) {
+                    if (resposta.status == 204) {
+                        var feed = document.getElementById("feed_container");
+                        var mensagem = document.createElement("span");
+                        mensagem.innerHTML = "Nenhum resultado encontrado."
+                        feed.appendChild(mensagem);
+                        throw "Nenhum resultado encontrado!!";
+                    }
+
+                    resposta.json().then(function (resposta) {
+                        var conta = ((resposta[0].afazeres/resposta[1].afazeres) * 100).toFixed(2)
+                        console.log("Dados recebidos: ", JSON.stringify(resposta));
+                        document.getElementById("analytics").innerHTML += `
+                            <p id="dados">em média, ${conta}% das usuárias utilizam nossos recursos e indicam. vem você, também. </p>`;
+                    });
+                } else {
+                    throw ('Houve um erro na API!');
+                }
+            }).catch(function (resposta) {
+                console.error(resposta)
+            });
+        }
+
+    </script>
+
+
+</body>
+
+</html>

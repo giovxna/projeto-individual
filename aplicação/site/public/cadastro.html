@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">    
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/cadastro/css/global.css">
+    <link rel="stylesheet" href="assets/cadastro/css/index.css" />
+    <title>posie | cadastro</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-side"></div>
+        <div class="right-side">
+            <form id="form">
+                <section class="copy">
+                    <h2>crie sua conta e aproveite sua mudança</h2><br>
+                </section>
+                <div class="input-container nome">
+                    <label class="nome_input">nome</label>
+                    <input type="text" id="nome_input">
+                    <small>Error</small>
+                </div>
+                <div class="input-container email">
+                    <label class="ipt-email">e-mail</label>
+                    <input type="email" id="email_input">
+                    <small>Error</small>
+                </div>
+                <div class="input-container password">
+                    <label class="ipt-password">senha</label>
+                    <input type="password" id="senha_input">
+                    <small>Error</small>
+                </div>
+                <div class="input-container password">
+                    <label class="ipt-password">confirme sua senha</label>
+                    <input type="password" id="confirmacao_senha_input">
+                    <small>Error</small>
+                </div>
+                <button onclick="cadastrar()" type="submit" class="signup-btn">cadastrar-se</button>
+                <a href="login.html">já tem uma conta?</a>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var form = document.getElementById('form')
+        var name = document.getElementById('nome_input')
+        var email = document.getElementById('email_input')
+        var password = document.getElementById('senha_input')
+        var passwordConfirm = document.getElementById('confirmacao_senha_input')
+
+
+        // tirando o comportamento padrão do navegador, ou seja, não irá perguntar se deseja salvar a senha.
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            checkInputs()
+        })
+
+        function checkInputs() {
+            // função trim para remover os espaços em branco e considerar apenas os textos
+            var emailUser = email.value.trim()
+            var passwordUser = password.value.trim()
+            var passwordConfirmUser = passwordConfirm.value.trim()
+
+            if (emailUser === "") {
+                errorValidation(email, 'Preencha este campo')
+            } else {
+                sucessValidation(email)
+            }
+
+            if (passwordUser === "") {
+                errorValidation(password, 'Preencha este campo')
+            } else {
+                sucessValidation(password)
+            }
+
+            if (passwordConfirmUser === "") {
+                errorValidation(passwordConfirm, `Preencha este campo`)
+            } else if (passwordConfirmUser !== passwordUser) {
+                errorValidation(password, 'Senha diferente')
+            } else {
+                sucessValidation(passwordConfirm)
+            }
+        }
+
+        function errorValidation(input, message) {
+            // função que irá reatribuir e atualizar o nome da classe no HTML automaticamente
+            var inputContainer = input.parentElement
+            var small = inputContainer.querySelector('small')
+
+            small.innerText = message
+            inputContainer.className = 'input-container error'
+        }
+
+        function sucessValidation(input) {
+            var inputContainer = input.parentElement
+            inputContainer.className = 'input-container success'
+        }
+    </script>
+
+    <script>
+        function cadastrar() {
+            // aguardar();
+
+            //Recupere o valor da nova input pelo nome do id
+            // Agora vá para o método fetch logo abaixo
+            var nomeVar = nome_input.value;
+            var emailVar = email_input.value;
+            var senhaVar = senha_input.value;
+            var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    // cardErro.style.display = "block";
+
+                    // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000")
+
+                    // limparFormulario();
+                    // finalizarAguardar();
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+
+            return false;
+        }
+
+        // function sumirMensagem() {
+        //     cardErro.style.display = "none"
+        // }
+    </script>
+</body>
+
+</html>
