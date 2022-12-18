@@ -2,7 +2,7 @@
 
 ## ✽ sobre
 
-posie é uma plataforma que busca servir como um refúgio para mulheres desmotivadas emocionalmente, enquanto auxilia e informa a importância da priorização do bem-estar mental e a prática da autocompaixão, a fim de garantir paz de espírito e confiança para perseguir seus objetivos, posteriormente. <br>
+posie é uma plataforma que busca servir como um refúgio para mulheres desmotivadas emocionalmente, enquanto auxilia e informa a importância da priorização do bem-estar mental e a prática da autocompaixão, a fim de garantir paz de espírito e confiança para perseguir seus objetivos. <br>
 este foi desenvolvido para a disciplina de Pesquisa e Inovação, na faculdade de tecnologia SP Tech School.
 
 
