@@ -1,4 +1,4 @@
-![posie](https://github.com/giovxna/posie/blob/main/identidade%20visual/imagens/mostragem.png)
+![posie](aplicação/site/public/assets/post/images/mostragem.png)
 
 ## ✽ sobre
 
